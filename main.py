@@ -106,32 +106,32 @@ def generateSkeleton():
 
 def generateAnnouncement(filename):
     df = pd.read_excel(filename)
-    # for index, item in df.iterrows():
-    #     textToSpeech(item['from'], f"2.mp3", "hi")
-    #     textToSpeech(item['via'], f"4.mp3", "hi")
-    #     textToSpeech(item['to'], f"6.mp3", "hi")
-    #     textToSpeech(item['train_no'] + " "+ item['train_name'], f"8.mp3", "hi")
-    #     textToSpeech(item['platform'], f"10.mp3", "hi")
+    for index, item in df.iterrows():
+        textToSpeech(item['from'], f"2.mp3", "hi")
+        textToSpeech(item['via'], f"4.mp3", "hi")
+        textToSpeech(item['to'], f"6.mp3", "hi")
+        textToSpeech(item['train_no'] + " "+ item['train_name'], f"8.mp3", "hi")
+        textToSpeech(item['platform'], f"10.mp3", "hi")
 
-    #     # 13 - Generate train no and name
-    #     textToSpeech(item['train_no'] + " "+ item['train_name'], f"13.mp3", "en")
-    #     # 15 - Generate from-city
-    #     textToSpeech(item['from'], f"15.mp3", "en")
-    #     # 17 - to-city
-    #     textToSpeech(item['to'], f"17.mp3", "en")
-    #     # 19 - via-city
-    #     textToSpeech(item['via'], f"19.mp3", "en")
-    #     # 21 - platform number
-    #     textToSpeech(item['platform'], f"21.mp3", "en")
+        # 13 - Generate train no and name
+        textToSpeech(item['train_no'] + " "+ item['train_name'], f"13.mp3", "en")
+        # 15 - Generate from-city
+        textToSpeech(item['from'], f"15.mp3", "en")
+        # 17 - to-city
+        textToSpeech(item['to'], f"17.mp3", "en")
+        # 19 - via-city
+        textToSpeech(item['via'], f"19.mp3", "en")
+        # 21 - platform number
+        textToSpeech(item['platform'], f"21.mp3", "en")
 
-    #     audios = [f"{i}.mp3" for i in range(1, 22)]
-    #     audios.insert(0, 'tune1.mp3')
-    #     audios.insert(12, 'tune1.mp3')
-    #     audios.append('tune1.mp3')
+        audios = [f"{i}.mp3" for i in range(1, 22)]
+        audios.insert(0, 'tune1.mp3')
+        audios.insert(12, 'tune1.mp3')
+        audios.append('tune1.mp3')
 
-    #     announcement = mergeAudios(audios)
-    #     announcement.export(f"announcement_{index+1}.mp3", format='mp3')
-    #     announcements.append(f"announcement_{index+1}.mp3")
+        announcement = mergeAudios(audios)
+        announcement.export(f"announcement_{index+1}.mp3", format='mp3')
+        announcements.append(f"announcement_{index+1}.mp3")
     return df
 
 def announce(file):
@@ -141,7 +141,7 @@ def announce(file):
 
 if __name__ == '__main__':
     print("Generating Skeleton...")
-    # generateSkeleton()
+    generateSkeleton()
     print("Generating Announcement...")
     exel = generateAnnouncement("announce_hindi.xlsx")
     print("All generated")
